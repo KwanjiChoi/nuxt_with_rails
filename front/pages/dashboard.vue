@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer app v-model='drawer' clipped>
+    <v-navigation-drawer app v-model='drawer' clipped width='300'>
       <v-container>
         <v-list-item>
           <v-list-item-content>
@@ -10,18 +10,28 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider />
-        <v-list dense nav>
-          <v-list-item v-for='nav_list in nav_lists' :key='nav_list'>
-            <v-list-item-icon>
-              <v-icon>{{ nav_list.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+
+        <v-list nav dense> 
+          <v-list-group v-for='nav_list in nav_lists' 
+                       :key='nav_list.name'
+                       :prepend-icon='nav_list.icon'
+                       no-action
+                       :append-icon="nav_list.lists ? undefined : ''">
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
+              </v-list-item-content>
+            </template>
+            <v-list-item v-for='list in nav_list.lists' :key='list'>
+              <v-list-item-content>
+                <v-list-item-title>{{ list }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
         </v-list>
       </v-container>
     </v-navigation-drawer>
+
     <v-app-bar color='primary'
                dark
                app
@@ -38,7 +48,7 @@
           </template>
           <v-list>
             <v-subheader>Get help</v-subheader>
-            <v-list-item v-for='support in supports' :key='support'>
+            <v-list-item v-for='support in supports' :key='support.name'>
               <v-list-icon class='mr-3'><v-icon>{{ support.icon }}</v-icon></v-list-icon>
               <v-list-item-content>
                 <v-list-item-title>{{ support.name }}</v-list-item-title>
@@ -69,12 +79,33 @@ export default {
         {name: 'Stack overview',icon: 'mdi-stack-overflow'}, 
       ],
       nav_lists:[
-        {name: 'Getting Started',icon: 'mdi-vuetify'},
-        {name: 'Customization',icon: 'mdi-cogs'},
-        {name: 'Styles & animations',icon: 'mdi-palette'},
-        {name: 'UI Components',icon: 'mdi-view-dashboard'},
-        {name: 'Directives',icon: 'mdi-function'},
-        {name: 'Preminum themes',icon: 'mdi-vuetify'},
+        {
+          name: 'Getting Started',
+          icon: 'mdi-speedometer',
+          lists: ['Quick Start', 'Pre-made layouts']
+        },
+        {
+          name: 'Customization',
+          icon: 'mdi-cogs'
+        },
+        {
+          name: 'Styles & animations',
+          icon: 'mdi-palette',
+          lists: ['Colors', 'Content', 'Display']
+        },
+        {
+          name: 'UI Components',
+          icon: 'mdi-view-dashboard',
+          lists: ['API explorer', 'Alerts']
+        },
+        {
+          name: 'Directives',
+          icon: 'mdi-function'
+        },
+        {
+          name: 'Preminum themes',
+          icon: 'mdi-vuetify'
+        },
       ]
     }
   }
