@@ -10,7 +10,6 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider />
-
         <v-list nav dense> 
           <v-list-group v-for='nav_list in nav_lists' 
                        :key='nav_list.name'
@@ -58,7 +57,19 @@
         </v-menu>
       </v-toolbar-items>
     </v-app-bar>
-
+    <v-main>
+      <Sample />
+      <v-container>
+        <v-row>
+          <v-col cols='7' class='mx-auto'>
+            <BarChart :chartdata='chartdata' :options='options' />
+          </v-col>
+          <v-col cols='7' class='mx-auto'>
+            <RandomChart />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
     <v-footer color='primary'
               dark
               app>
@@ -105,8 +116,22 @@ export default {
         {
           name: 'Preminum themes',
           icon: 'mdi-vuetify'
-        },
-      ]
+        }
+      ],
+      chartdata: {
+        labels: ['A','B','C'],
+        datasets: [
+          {
+            label: ['data'],
+            backgroundColor: '#f87979',
+            data: [30, 32, 35]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
     }
   }
 }
