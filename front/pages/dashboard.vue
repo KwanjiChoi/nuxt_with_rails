@@ -1,42 +1,45 @@
 <template>
   <v-app>
     <v-navigation-drawer app v-model='drawer' clipped width='300'>
-      <v-container>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class='title grey--text text--darken-2'>
-              Navigations lists
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider />
-        <v-list nav dense> 
-          <v-list-group v-for='nav_list in nav_lists' 
-                       :key='nav_list.name'
-                       :prepend-icon='nav_list.icon'
-                       no-action
-                       :append-icon="nav_list.lists ? undefined : ''">
-            <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
-              </v-list-item-content>
-            </template>
-            <v-list-item v-for='list in nav_list.lists' :key='list'>
-              <v-list-item-content>
-                <v-list-item-title>{{ list }}</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-group>
-        </v-list>
-      </v-container>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class='title grey--text text--darken-2'>
+            Navigations lists
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider />
+      <v-list nav dense> 
+        <v-list-group v-for='nav_list in nav_lists' 
+                      :key='nav_list.name'
+                      :prepend-icon='nav_list.icon'
+                      no-action
+                      :append-icon="nav_list.lists ? undefined : ''">
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item v-for='list in nav_list.lists' :key='list'>
+            <v-list-item-content>
+              <v-list-item-title>{{ list }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
     </v-navigation-drawer>
 
     <v-app-bar color='primary'
                dark
                app
+               fixed
                clipped-left>
-      <v-app-bar-nav-icon @click='drawer=!drawer' />
-      <v-toolbar-title>Vuetify</v-toolbar-title>
+      <v-app-bar-nav-icon @click='drawer=!drawer'></v-app-bar-nav-icon>
+      <v-toolbar-title>
+        <n-link to='/' style="color:white; text-decoration:none">
+          Portfolio
+        </n-link>
+      </v-toolbar-title>
       <v-spacer />
       <v-toolbar-items>
         <v-btn text>Kwanji</v-btn>
@@ -59,20 +62,20 @@
     </v-app-bar>
     <v-main>
       <Sample />
-      <v-container>
-        <v-row>
-          <v-col cols='7' class='mx-auto'>
-            <BarChart :chartdata='chartdata' :options='options' />
-          </v-col>
-          <v-col cols='7' class='mx-auto'>
-            <RandomChart />
-          </v-col>
-        </v-row>
-      </v-container>
+      <v-row>
+        <v-col cols='7' class='mx-auto'>
+          <BarChart :chartdata='chartdata' :options='options' />
+        </v-col>
+        <v-col cols='7' class='mx-auto'>
+          <RandomChart />
+        </v-col>
+      </v-row>
     </v-main>
     <v-footer color='primary'
               dark
-              app>
+              app
+              absolute='false'
+              height='80px'>
       Vuetify
     </v-footer>
   </v-app>
