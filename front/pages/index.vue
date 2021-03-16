@@ -7,16 +7,11 @@
       </h1>
       <div class="links">
         <n-link to='/login' class="button--green">
-        login
+          login
         </n-link>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+        <n-link to='/signup' class="button--green">
+          Signup
+        </n-link>
       </div>
     </div>
   </div>
