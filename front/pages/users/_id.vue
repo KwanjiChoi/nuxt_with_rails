@@ -4,7 +4,7 @@
 <script>
 export default {
   asyncData({ $axios, params }) {
-    return $axios.$get(`${process.env.BASE_URL}users/${params.id}`)
+    return $axios.$get(`${process.env.BASE_URL}/users/${params.id}`)
       .then((res) => {
         return { name: res.name }
       })

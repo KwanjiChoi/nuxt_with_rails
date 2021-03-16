@@ -40,7 +40,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-
+  axios: {
+    baseURL: process.env.BASE_URL
+  },
   auth: {
     redirect: {
       login: '/login',
@@ -51,12 +53,15 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/app/v1/auth/login', method: 'post', propertyName: 'token'},
-          logout: { url: '/app/v1/auth/logout', method: 'post' },
+          login: { url: '/v1/auth/sign_in', method: 'post', propertyName: 'token'},
+          logout: { url: '/v1/auth/sign_out', method: 'post' },
           user: false
         }
       }
     }
+  },
+  router: {
+    middleware: ['auth']
   }
 
 }
