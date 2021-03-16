@@ -51,8 +51,8 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/back/v1/auth/login', method: 'post', propertyName: 'token'},
-          logout: { url: '/api/v1/auth/logout', method: 'post' },
+          login: { url: '/app/v1/auth/login', method: 'post', propertyName: 'token'},
+          logout: { url: '/app/v1/auth/logout', method: 'post' },
           user: false
         }
       }
