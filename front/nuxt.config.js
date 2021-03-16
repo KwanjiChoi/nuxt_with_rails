@@ -33,10 +33,30 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    '@nuxtjs/auth'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: false,
+      home: '/users/profile'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/back/v1/auth/login', method: 'post', propertyName: 'token'},
+          logout: { url: '/api/v1/auth/logout', method: 'post' },
+          user: false
+        }
+      }
+    }
   }
+
 }
