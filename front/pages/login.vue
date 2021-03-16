@@ -30,6 +30,9 @@
               ログイン
             </v-btn>
           </v-card-actions>
+          <v-card-text>
+            <n-link to='/signup' class='grey--text text--darken-2'>SignUpはこちら</n-link>
+          </v-card-text>
         </v-form>
       </v-card-text>
     </v-card>

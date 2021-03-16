@@ -15,7 +15,7 @@
           />
           <v-text-field
             v-bind:type="user.showPassword ? 'text' : 'password'"
-            v-model="password"
+            v-model="user.password"
             prepend-icon="mdi-lock"
             v-bind:append-icon="user.showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             label="パスワード"
@@ -38,6 +38,9 @@
               Sign Up
             </v-btn>
           </v-card-actions>
+          <v-card-text>
+            <n-link to='/login' class='grey--text text--darken-2'>ログインはこちら</n-link>
+          </v-card-text>
         </v-form>
       </v-card-text>
     </v-card>
