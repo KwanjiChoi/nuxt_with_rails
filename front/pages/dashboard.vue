@@ -82,6 +82,7 @@
 </template>
 <script>
 export default {
+  auth: false,
   data(){
     return{
       drawer: null,
