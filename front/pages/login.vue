@@ -31,7 +31,8 @@
             </v-btn>
           </v-card-actions>
           <v-card-text>
-            <n-link to='/signup' class='grey--text text--darken-2'>SignUpはこちら</n-link>
+            <n-link to='/signup' class='grey--text text--darken-2'>SignUpはこちら</n-link> <br>
+            <n-link to='/' class='grey--text text--darken-2'>Top</n-link>
           </v-card-text>
         </v-form>
       </v-card-text>

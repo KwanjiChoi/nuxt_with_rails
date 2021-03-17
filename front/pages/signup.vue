@@ -39,7 +39,8 @@
             </v-btn>
           </v-card-actions>
           <v-card-text>
-            <n-link to='/login' class='grey--text text--darken-2'>ログインはこちら</n-link>
+            <n-link to='/login' class='grey--text text--darken-2'>ログインはこちら</n-link> <br>
+            <n-link to='/' class='grey--text text--darken-2'>Top</n-link>
           </v-card-text>
         </v-form>
       </v-card-text>
