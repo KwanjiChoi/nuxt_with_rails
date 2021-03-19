@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-card width="400px" class="mx-auto mt-10" >
+    <Header />
+    <v-card width="400px" class="mx-auto" >
       <v-card-title>
         <h1 class="display-1">
           ログイン
@@ -41,8 +42,12 @@
 </template>
 
 <script>
+import Header from '../components/shared/Header.vue'
 export default {
   name: 'App',
+  components: {
+    Header
+  },
   auth: false,
   data: () => ({
     showPassword: false
@@ -79,3 +84,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+  .v-card { 
+    margin-top: 130px;
+  } 
+</style>

@@ -35,7 +35,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.BASE_URL
+    baseURL: 'http://localhost:3000'
   },
 
   auth: {
