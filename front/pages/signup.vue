@@ -80,6 +80,8 @@ export default {
     },
   },
 }
+
+console.log(process.env.BASE_URL)
 </script>
 <style scoped>
   .v-card { 
