@@ -6,6 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
+/.cash
+/.local
+/.ash_history
 
 # Ignore all logfiles and tempfiles.
 /log/*
