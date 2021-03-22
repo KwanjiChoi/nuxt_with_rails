@@ -8,6 +8,7 @@
     <slot />
   </v-alert>
 </template>
+
 <script>
 export default {
   inheritAttrs: false,
@@ -25,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .v-alert--notification {
   border-radius: 4px !important;
   border-top: none !important;

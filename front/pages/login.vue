@@ -48,10 +48,19 @@ export default {
   components: {
     Header
   },
+
   auth: false,
+
   data: () => ({
     showPassword: false
   }),
+
+  middleware({ store, redirect }) {
+    if(store.$auth.loggedIn) {
+      redirect('/');
+    }
+  },
+
   data() {
     return {
       email: '',

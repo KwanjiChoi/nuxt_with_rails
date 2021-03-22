@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Header />
+    <Notification class="mb-3" color="info"></Notification>
     <v-card width="400px" class="mx-auto" >
       <v-card-title>
         <h1 class="display-1">
@@ -51,10 +52,12 @@
 
 <script>
 import Header from '../components/shared/Header.vue'
+import Notification from '../components/materials/notification.vue'
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Notification
   },
   auth: false,
   data: () => ({
