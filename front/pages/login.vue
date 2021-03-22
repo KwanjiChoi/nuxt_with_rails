@@ -77,7 +77,7 @@ export default {
             return response
           },
           (error) => {
-            return error
+            console.log(error);
           }
         )
     },
