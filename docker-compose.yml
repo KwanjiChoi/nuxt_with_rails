@@ -14,6 +14,8 @@ services:
     build: back/
     volumes:
       - ./back:/app
+    ports:
+      - "8080:3000"
     depends_on:
       - db
 
@@ -24,6 +26,6 @@ services:
     volumes:
       - ./front:/app
     ports:
-      - 8080:3000
+      - 3000:3000
     depends_on:
       - back

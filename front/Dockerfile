@@ -8,6 +8,7 @@ WORKDIR ${HOME}
 
 RUN apk update && \
     apk upgrade && \
+    apk add curl && \
     npm install -g npm && \
     npm install -g @vue/cli
 

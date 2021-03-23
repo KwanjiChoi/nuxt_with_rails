@@ -35,7 +35,8 @@ export default {
   },
 
   axios: {
-    baseURL: 'http://localhost:3000'
+    baseURL: process.env.BASE_URL,
+    browserBaseURL: process.env.BROWSER_URL
   },
 
   auth: {
@@ -43,13 +44,13 @@ export default {
       login: '/login',
       logout: '/',
       callback: false,
-      home: '/users/profile'
+      home: '/dashboard',
     },
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/v1/auth/sign_in', method: 'post', propertyName: 'token'},
-          logout: { url: '/v1/auth/sign_out', method: 'post' },
+          login: { url: 'api/v1/auth/sign_in', method: 'post', propertyName: 'token'},
+          logout: { url: 'api/v1/auth/sign_out', method: 'post' },
           user: false
         }
       }

@@ -44,6 +44,7 @@
       <v-toolbar-items>
         <v-btn text>Kwanji</v-btn>
         <v-btn text>For Companies</v-btn>
+        <v-btn text @click="$auth.logout()">logout</v-btn>
         <v-menu offset-y>
           <template v-slot:activator='{on}'>
             <v-btn v-on='on' text>Support <v-icon>mdi-menu-down</v-icon></v-btn>
@@ -74,7 +75,7 @@
     <v-footer color='primary'
               dark
               app
-              absolute='false'
+              absolute=false
               height='80px'>
       Vuetify
     </v-footer>
@@ -82,7 +83,6 @@
 </template>
 <script>
 export default {
-  auth: false,
   data(){
     return{
       drawer: null,
@@ -92,6 +92,7 @@ export default {
         {name: 'Report a bug',icon: 'mdi-bug'},
         {name: 'Github issue board',icon: 'mdi-github'},
         {name: 'Stack overview',icon: 'mdi-stack-overflow'}, 
+        {name: 'logout',icon: 'mdi-stack-overflow'}, 
       ],
       nav_lists:[
         {
@@ -137,6 +138,23 @@ export default {
         maintainAspectRatio: false
       }
     }
-  }
+  },
+
+  methods: {
+    deleteUser() {
+      this.$axios
+        .delete('api/v1/auth', {
+          headers: {
+            'access-token': localStorage.getItem('access-token'),
+            uid: localStorage.getItem('uid'),
+            client: localStorage.getItem('client'),
+          },
+        })
+        .then((response) => {
+          this.$auth.logout()
+          window.location.href = '/'
+        })
+    },
+  },
 }
 </script>
