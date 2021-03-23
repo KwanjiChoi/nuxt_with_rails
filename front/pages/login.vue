@@ -47,6 +47,12 @@ import Notification from '../components/materials/Notification.vue'
 export default {
   name: 'App',
 
+  middleware({ store, redirect }) {
+    if(store.$auth.loggedIn) {
+      redirect('/dashboard');
+    }
+  },
+
   components: {
     Header,
     Notification

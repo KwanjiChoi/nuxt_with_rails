@@ -44,7 +44,7 @@ export default {
       login: '/login',
       logout: '/',
       callback: false,
-      home: '/dashboard'
+      home: '/dashboard',
     },
     strategies: {
       local: {
