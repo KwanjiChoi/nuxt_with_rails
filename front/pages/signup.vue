@@ -37,7 +37,7 @@
           <v-card-actions>
             <v-btn
               color="light-green darken-1"
-              class="white--text"
+              class="white--text mt-5"
               @click="registerUser"
             >
               Sign Up

@@ -27,7 +27,7 @@
           <v-card-actions>
             <v-btn
               color="light-green darken-1"
-              class="white--text"
+              class="white--text mt-5"
               @click="loginWithAuthModule"
             >
               ログイン
@@ -83,6 +83,7 @@ export default {
             email: this.email,
             password: this.password,
           },
+          
         })
         .then(
           (response) => {
@@ -90,10 +91,11 @@ export default {
             localStorage.setItem('client', response.headers.client)
             localStorage.setItem('uid', response.headers.uid)
             localStorage.setItem('token-type', response.headers['token-type'])
+            this.$router.go({path: this.$router.currentRoute.path, force: true})
             return response
           },
-          (error) => {
-            console.log(error);
+          () => {
+            alert('エラーが発生しております')
           }
         )
     },
