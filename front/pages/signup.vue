@@ -14,6 +14,7 @@
             v-model="user.email"
             prepend-icon="mdi-email"
             label="メールアドレス"
+            :rules='[required]'
           />
           <v-text-field
             v-bind:type="user.showPassword ? 'text' : 'password'"
@@ -22,6 +23,7 @@
             v-bind:append-icon="user.showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             label="パスワード"
             @click:append="user.showPassword = !user.showPassword"
+            :rules='[required]'
           />
           <v-text-field
             v-bind:type="user.showPasswordConfirmation ? 'text' : 'password'"
@@ -29,7 +31,8 @@
             prepend-icon="mdi-lock"
             v-bind:append-icon="user.showPasswordConfirmation ? 'mdi-eye' : 'mdi-eye-off'"
             label="パスワード確認"
-             @click:append="user.showPasswordConfirmation = !user.showPasswordConfirmation"
+            @click:append="user.showPasswordConfirmation = !user.showPasswordConfirmation"
+            :rules='[required]'
           />
           <v-card-actions>
             <v-btn
@@ -66,12 +69,13 @@ export default {
   }),
   data() {
     return {
+      required: value => !!value || "必ず入力してください",
       user: {
         email: '',
         password: '',
         password_confirmation: '',
         showPassword: false,
-        showPasswordConfirmation: false
+        showPasswordConfirmation: false,
       },
     }
   },

@@ -13,6 +13,7 @@
             v-model="email"
             prepend-icon="mdi-email"
             label="メールアドレス"
+            :rules='[required]'
           />
           <v-text-field
             v-bind:type="showPassword ? 'text' : 'password'"
@@ -21,6 +22,7 @@
             v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             label="パスワード"
             @click:append="showPassword = !showPassword"
+            :rules='[required]'
           />
           <v-card-actions>
             <v-btn
@@ -68,7 +70,8 @@ export default {
     return {
       email: '',
       password: '',
-      showPassword: false
+      showPassword: false,
+      required: value => !!value || "必ず入力してください",
     }
   },
 
