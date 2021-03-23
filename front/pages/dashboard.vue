@@ -74,7 +74,7 @@
     <v-footer color='primary'
               dark
               app
-              absolute='false'
+              absolute=false
               height='80px'>
       Vuetify
     </v-footer>
@@ -82,7 +82,6 @@
 </template>
 <script>
 export default {
-  auth: false,
   data(){
     return{
       drawer: null,

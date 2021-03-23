@@ -52,7 +52,7 @@
 
 <script>
 import Header from '../components/shared/Header.vue'
-import Notification from '../components/materials/notification.vue'
+import Notification from '../components/materials/Notification.vue'
 export default {
   name: 'App',
   components: {

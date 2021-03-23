@@ -43,10 +43,13 @@
 
 <script>
 import Header from '../components/shared/Header.vue'
+import Notification from '../components/materials/Notification.vue'
 export default {
   name: 'App',
+
   components: {
-    Header
+    Header,
+    Notification
   },
 
   auth: false,
@@ -55,12 +58,6 @@ export default {
     showPassword: false
   }),
 
-  middleware({ store, redirect }) {
-    if(store.$auth.loggedIn) {
-      redirect('/');
-    }
-  },
-
   data() {
     return {
       email: '',
@@ -68,6 +65,7 @@ export default {
       showPassword: false
     }
   },
+
   methods: {
     async loginWithAuthModule() {
       await this.$auth
